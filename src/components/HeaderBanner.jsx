@@ -45,7 +45,11 @@ const HeaderBanner = () => {
       }}
       className="w-full flex items-center justify-center h-full relative duration-700 bg-hero transform"
     >
-      <div className="w-full absolute  h-full gap-5 flex flex-col md:flex-row-reverse items-center max-w-[1200px] mx-auto">
+      <div
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-center"
+        className="w-full  absolute  h-full gap-5 flex flex-col md:flex-row-reverse items-center max-w-[1200px] mx-auto"
+      >
         <div className="w-full text-white">
           <h1 className="text-3xl md:5xl tracking-wide font-bold">
             {sliderData[currentSlide].title}

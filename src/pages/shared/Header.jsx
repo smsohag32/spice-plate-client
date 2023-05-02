@@ -47,7 +47,7 @@ const Header = () => {
             className={({ isActive }) => (isActive ? "primary-text" : "")}
             to="/contact"
           >
-            Contact
+            Contact us
           </NavLink>
           <span className="md:hidden">
             <Link to="/login">
