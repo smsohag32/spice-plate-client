@@ -5,8 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   daisyui: {
-    themes: ["dark"],
+    themes: ["light"],
+    animation:{
+          'ltr-linear-infinite': 'normal 100s linear infinite'
+        },
   },
+
   plugins: [require("daisyui")],
 }
 

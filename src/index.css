@@ -15,6 +15,18 @@ html{
     @apply bg-[#e21b70] tracking-widest text-white py-2 px-4 font-bold rounded-sm 
 }
 
-.primary-color{
+.primary-text{
     @apply text-[#e21b70] font-medium
+}
+
+.secondary-btn {
+    @apply bg-[#e21b70] py-1.5 px-4 text-white rounded-sm font-semibold text-sm tracking-tight
+}
+
+.primary-text {
+    @apply text-[#e21b70]
+}
+
+.default-container {
+    @apply max-w-[1200px] mx-auto w-full px-4 md:px-2
 }

@@ -1,105 +1,63 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import Hamburger from "hamburger-react";
 const Header = () => {
+  const [isOpen, setOpen] = useState(false);
   return (
     <div>
-      <div className="navbar py-3 w-full max-w-[1200px] mx-auto bg-base-100">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-compact dropdown-content ms-0 mt-3 p-2 shadow bg-base-100 rounded-box w-52 h-[calc(100vh-90px)]"
-            >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li tabIndex={0}>
-                <a className="justify-between">
-                  Parent
-                  <svg
-                    className="fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                  </svg>
-                </a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
-            </ul>
-          </div>
-          <span style={{ fontFamily: `'Pacifico', cursive` }}>
-            <Link className="text-xl md:text-2xl" to="/">
-              Spice<span className="primary-color">Palate</span>
-            </Link>
+      <div className="flex z-50 flex-col gap-5 md:gap-0 md:flex-row md:justify-between md:items-center default-container mt-4 md:mt-0 ">
+        <div className="flex justify-between items-center">
+          <h3 className="font-extrabold">
+            <span style={{ fontFamily: `'Pacifico', cursive` }}>
+              <Link className="text-xl ps-5 md:ps-0 md:text-2xl" to="/">
+                Spice<span className="primary-text">Palate</span>
+              </Link>
+            </span>
+          </h3>
+          <span className="md:hidden">
+            <Hamburger toggled={isOpen} toggle={setOpen} />
           </span>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li tabIndex={0}>
-              <a>
-                Parent
-                <svg
-                  className="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                </svg>
-              </a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
-          </ul>
-        </div>
-        <div className="navbar-end">
-          <Link className="primary-btn" to="/login">
-            Login
-          </Link>
-        </div>
+        <ul
+          className={`flex absolute md:static gap-4 flex-col md:flex-row bg-blue-50 p-8 md:bg-transparent md:text-black font-bold text-base ${
+            isOpen
+              ? "top-16 mt-1 z-20 duration-700 left-0"
+              : "-left-60 top-16 overflow-hidden duration-700"
+          }`}
+        >
+          <NavLink
+            className={({ isActive }) => (isActive ? "primary-text" : "")}
+            to="/"
+          >
+            Home
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "primary-text" : "")}
+            to="/recipes"
+          >
+            Recipes
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "primary-text" : "")}
+            to="/blogs"
+          >
+            Blogs
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "primary-text" : "")}
+            to="/contact"
+          >
+            Contact
+          </NavLink>
+          <span className="md:hidden">
+            <Link to="/login">
+              <button className="primary-btn ">Login</button>
+            </Link>
+          </span>
+        </ul>
+        <Link to="/Login">
+          <button className="primary-btn hidden md:inline-block">Login</button>
+        </Link>
       </div>
     </div>
   );

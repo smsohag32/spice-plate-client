@@ -12,13 +12,15 @@ const sliderData = [
     id: 2,
     url: "https://i.ibb.co/BtXxZjz/img3.png",
     title: "Bangladeshi Popular Spice Recife",
-    description: "lorem haoojfdflasjldjdalflljksdflasf",
+    description:
+      "loremlorem haoojfdflasjldjdalflljksdflasflorem haoojfdflasjldjdalflljksdflasf haoojfdflasjldjdalflljksdflasf",
   },
   {
     id: 3,
     url: "https://i.ibb.co/9tn86dG/img2.jpg",
     title: "Bangladeshi Popular Spice Recife",
-    description: "lorem haoojfdflasjldjdalflljksdflasf",
+    description:
+      "lorem haoojfdflasjldjdalflljksdflasflorem haoojfdflasjldjdalflljksdflasflorem haoojfdflasjldjdalflljksdflasflorem haoojfdflasjldjdalflljksdflasf",
   },
 ];
 
@@ -37,20 +39,22 @@ const HeaderBanner = () => {
   return (
     <div
       style={{
-        backgroundImage: `url(${sliderData[currentSlide].url})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${sliderData[currentSlide].url})`,
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}
-      className="w-full h-full duration-700 transform "
+      className="w-full flex items-center justify-center h-full relative duration-700 bg-hero transform"
     >
-      <div className="w-full flex items-center max-w-[1200px] mx-auto">
-        <div className="w-full">
-          <h1>{sliderData[currentSlide].title}</h1>
-          <p>{sliderData[currentSlide].description}</p>
-          <div className="flex items-center gap-4">
+      <div className="w-full absolute  h-full gap-5 flex flex-col md:flex-row-reverse items-center max-w-[1200px] mx-auto">
+        <div className="w-full text-white">
+          <h1 className="text-3xl md:5xl tracking-wide font-bold">
+            {sliderData[currentSlide].title}
+          </h1>
+          <p className="py-4">{sliderData[currentSlide].description}</p>
+          <div className="flex mt-10 items-center gap-4">
             {sliderData.map((item, index) => (
               <span
-                className="w-10 transition-all duration-300 transform h-2 rounded-2xl bg-[#e21b70]"
+                className="w-10 transition-transform duration-300 transform h-2 rounded-2xl bg-[#e21b70]"
                 key={index}
                 onClick={() => setCurrentSlide(index)}
               ></span>
