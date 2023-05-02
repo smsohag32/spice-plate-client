@@ -1,17 +1,52 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 // login component
 
 const Login = () => {
-  const { loginUser, googleLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { loginUser, googleLogin, githubLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
   // handle user login
   const handleLogin = (e) => {
     e.preventDefault();
+    setError("");
+
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    if (!email) {
+      setError("Please fill out email field.");
+      return;
+    } else if (!password) {
+      setError("Please fill out password field");
+    }
+    loginUser(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        setSuccess("Login Successful");
+        navigate("/");
+        e.target.reset();
+      })
+      .catch((error) => {
+        setError("Something went wrong");
+      });
   };
+  //   handle google login
+  const handleGoogleLogin = () => {
+    googleLogin();
+    navigate("/");
+  };
+  //   handle github login
+  const handleGitHubLogin = () => {
+    githubLogin();
+    navigate("/");
+  };
+
   return (
     <div className="bg-slate-50">
       <div className="default-container py-4">
@@ -37,6 +72,7 @@ const Login = () => {
               </label>
               <input
                 type="text"
+                name="password"
                 placeholder="password"
                 className="input input-bordered"
               />
@@ -65,10 +101,16 @@ const Login = () => {
               </button>
             </div>
             <hr className="my-2 border-2" />
-            <button className="btn mx-5 btn-outline flex justify-around hover:primary-text">
+            <button
+              onClick={handleGoogleLogin}
+              className="btn mx-5 btn-outline flex justify-around hover:primary-text"
+            >
               <FcGoogle className="text-2xl" /> Continue with google
             </button>
-            <button className="btn mx-5 btn-outline flex justify-around hover:primary-text">
+            <button
+              onClick={handleGitHubLogin}
+              className="btn mx-5 btn-outline flex justify-around hover:primary-text"
+            >
               <FaGithub className="text-2xl" /> Continue with gitHub
             </button>
           </form>

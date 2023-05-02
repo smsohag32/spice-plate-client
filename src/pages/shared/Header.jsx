@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Hamburger from "hamburger-react";
+import { AuthContext } from "../../Context/AuthProvider";
 const Header = () => {
+  const { user, userLogout } = useContext(AuthContext);
   const [isOpen, setOpen] = useState(false);
+  //   handle user logout
+  const handleLogout = () => {
+    userLogout();
+  };
   return (
     <div>
       <div className="flex z-50 flex-col gap-5 md:gap-0 md:flex-row md:justify-between md:items-center default-container mt-4 md:mt-0 ">
@@ -55,9 +61,27 @@ const Header = () => {
             </Link>
           </span>
         </ul>
-        <Link to="/Login">
-          <button className="primary-btn hidden md:inline-block">Login</button>
-        </Link>
+        {user ? (
+          <span className="flex gap-5">
+            <div className="avatar">
+              <div className="w-14 rounded-full">
+                <img src={user?.photoURL} alt="userPhoto" />
+              </div>
+            </div>
+            <button
+              onClick={handleLogout}
+              className="primary-btn hidden md:inline-block"
+            >
+              Logout
+            </button>
+          </span>
+        ) : (
+          <Link to="/Login">
+            <button className="primary-btn hidden md:inline-block">
+              Login
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -1,13 +1,16 @@
 import React, { useContext, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Register = () => {
   const { createUser, logoutUser, updateProfileInfo } = useContext(AuthContext);
-  const [isEmpty, setIsEmpty] = useState(false);
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
+  const [isEmpty, setIsEmpty] = useState(true);
   const [success, setSuccess] = useState("");
+  const [password, setPassword] = useState("");
   const [nameEr, setNameEr] = useState("");
   const [emailEr, setEmailEr] = useState("");
   const [passwordEr, setPasswordEr] = useState("");
@@ -24,7 +27,7 @@ const Register = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const confirm = e.target.confirm.value;
-    const photoUrl = e.target.photo.value;
+    const photo = e.target.photo.value;
 
     // validation check
     if (!name) {
@@ -48,15 +51,26 @@ const Register = () => {
     } else if (!(password === confirm)) {
       setMatchingEr(`Password doesn't matching`);
       return;
-    } else {
-      setNameEr("");
     }
+    // firebase authentication
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        setSuccess("Account Created successful");
+        updateProfileInfo(name, photo);
+        logoutUser();
+        navigate("/login");
+        e.target.reset();
+      })
+      .catch((error) => {
+        setError("Something went wrong !");
+      });
   };
   //   handle email validation
   const handleEmailEr = (e) => {
     console.log(e.target.value);
     const email = e.target.value;
-    if (!email) {
+    if (!(email && password)) {
       setIsEmpty(true);
     } else {
       setIsEmpty(false);
@@ -65,6 +79,7 @@ const Register = () => {
   //   handle password er
   const handlePasswordEr = (e) => {
     const password = e.target.value;
+    setPassword(password);
     if (!password) {
       setIsEmpty(true);
     } else if (password) {
@@ -172,6 +187,7 @@ const Register = () => {
                 name="photo"
               />
             </div>
+
             <div className="form-control mt-2">
               <span className="text-xs">
                 Already have an account? please
@@ -183,23 +199,21 @@ const Register = () => {
                 </Link>
               </span>
             </div>
-
-            <div className="form-control mt-5">
+            {error && (
+              <div className="mt-1 text-red-400 bg-warning rounded-sm py-2  transform bg-opacity-10 duration-300 font-medium text-sm">
+                <p className="ms-3">{error}</p>
+              </div>
+            )}
+            <div className="form-control mt-4">
               <button
                 disabled={isEmpty}
                 type="submit"
                 className="btn primary-btn"
               >
-                Login
+                Register
               </button>
             </div>
             <hr className="my-2 border-2" />
-            <button className="btn mx-5 btn-outline flex justify-around hover:primary-text">
-              <FcGoogle className="text-2xl" /> Continue with google
-            </button>
-            <button className="btn mx-5 btn-outline flex justify-around hover:primary-text">
-              <FaGithub className="text-2xl" /> Continue with gitHub
-            </button>
           </form>
         </div>
       </div>
