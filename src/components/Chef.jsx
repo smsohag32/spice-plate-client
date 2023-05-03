@@ -1,5 +1,6 @@
 import React from "react";
 import { Fade } from "react-reveal";
+import { Link } from "react-router-dom";
 const Chef = ({ chef }) => {
   const { id, chefPhoto, chefName, numberOfRecipes, likes, yearsOfExperience } =
     chef;
@@ -26,7 +27,9 @@ const Chef = ({ chef }) => {
               Total Recipes - {numberOfRecipes}
             </p>
             <div className="card-actions justify-end">
-              <button className="secondary-btn">View Recipes</button>
+              <Link to={`/recipes/${id}`}>
+                <button className="secondary-btn">View Recipes</button>
+              </Link>
             </div>
           </div>
         </div>

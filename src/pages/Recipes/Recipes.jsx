@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Recipes = () => {
-  return <div></div>;
+  const [recipes, setRecipes] = useState([]);
+  return <div>recipes</div>;
 };
 
 export default Recipes;

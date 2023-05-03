@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <div>
       <div className="flex z-50 flex-col gap-5 md:gap-0 md:flex-row md:justify-between md:items-center default-container mt-4 md:mt-0 ">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between pb-3 md:pb-0 items-center">
           <h3 className="font-extrabold">
             <span style={{ fontFamily: `'Pacifico', cursive` }}>
               <Link className="text-xl ps-5 md:ps-0 md:text-2xl" to="/">
@@ -39,9 +39,15 @@ const Header = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) => (isActive ? "primary-text" : "")}
-            to="/recipes"
+            to={`${user ? "/dish" : "/login"}`}
           >
-            Recipes
+            Popular Dish
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "primary-text" : "")}
+            to="/events"
+          >
+            Events
           </NavLink>
           <NavLink
             className={({ isActive }) => (isActive ? "primary-text" : "")}
@@ -62,7 +68,7 @@ const Header = () => {
           </span>
         </ul>
         {user ? (
-          <span className="flex gap-5">
+          <span className="hidden md:flex  gap-5">
             <div className="avatar">
               <div className="w-14 rounded-full">
                 <img src={user?.photoURL} alt="userPhoto" />
