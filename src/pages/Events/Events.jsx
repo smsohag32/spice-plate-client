@@ -3,7 +3,7 @@ import NewsEvent from "../Home/NewsEvent";
 
 const Events = () => {
   return (
-    <div>
+    <div className="bg-black">
       <NewsEvent />
     </div>
   );

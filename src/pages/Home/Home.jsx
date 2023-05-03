@@ -6,6 +6,7 @@ import NewsEvent from "./NewsEvent";
 import { useLoaderData } from "react-router-dom";
 import { Zoom } from "react-reveal";
 import bg from "../../assets/bg/bg1.webp";
+import Dishes from "./Dishes";
 const Home = () => {
   const chefs = useLoaderData();
 
@@ -31,6 +32,9 @@ const Home = () => {
         className=""
       >
         <NewsEvent />
+      </div>
+      <div className="mt-7">
+        <Dishes />
       </div>
     </div>
   );

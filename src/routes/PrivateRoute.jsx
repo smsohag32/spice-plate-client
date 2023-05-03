@@ -5,7 +5,7 @@ import { ThreeDots } from "react-loader-spinner";
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
-  console.log(user);
+
   if (loading) {
     return (
       <ThreeDots
@@ -19,11 +19,12 @@ const PrivateRoute = ({ children }) => {
         visible={true}
       />
     );
-  }
-  if (user) {
-    return children;
   } else {
-    return <Navigate to="/login" state={{ from: location }}></Navigate>;
+    if (user) {
+      return children;
+    } else {
+      return <Navigate to="/login" state={{ from: location }}></Navigate>;
+    }
   }
 };
 
