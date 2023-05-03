@@ -7,11 +7,13 @@ import Blogs from "../pages/Blogs/Blogs";
 import Recipes from "../pages/Recipes/Recipes";
 import Dashboard from "../pages/Dashboard.jsx/Dashboard";
 import Contact from "../pages/Contact/Contact";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",

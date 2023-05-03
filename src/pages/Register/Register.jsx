@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Register = () => {
-  const { createUser, logoutUser, updateProfileInfo } = useContext(AuthContext);
+  const { createUser, userLogout, updateProfileInfo } = useContext(AuthContext);
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [isEmpty, setIsEmpty] = useState(true);
@@ -18,6 +18,7 @@ const Register = () => {
   // handle user register
   const handleRegister = (e) => {
     e.preventDefault();
+    setError("");
     setSuccess("");
     setNameEr("");
     setPasswordEr("");
@@ -57,13 +58,16 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         setSuccess("Account Created successful");
-        updateProfileInfo(name, photo);
-        logoutUser();
+        userLogout()
+          .then()
+          .catch((error) => console.log(error.message));
         navigate("/login");
+        updateProfileInfo(name, photo);
         e.target.reset();
       })
       .catch((error) => {
         setError("Something went wrong !");
+        console.log(error);
       });
   };
   //   handle email validation

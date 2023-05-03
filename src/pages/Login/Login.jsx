@@ -27,7 +27,6 @@ const Login = () => {
     loginUser(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
         setSuccess("Login Successful");
         navigate("/");
         e.target.reset();
@@ -43,7 +42,7 @@ const Login = () => {
   };
   //   handle github login
   const handleGitHubLogin = () => {
-    githubLogin();
+    // githubLogin();
     navigate("/");
   };
 
