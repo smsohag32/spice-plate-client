@@ -35,19 +35,19 @@ const HeaderBanner = () => {
         }}
         className="w-full flex items-center justify-center h-full relative duration-700 bg-hero transform"
       >
-        <div className="w-full  absolute  h-full gap-5 flex flex-col md:flex-row-reverse items-center max-w-[1200px] mx-auto">
-          <div className="w-full text-white">
+        <div className="w-full pt-5 md:pt-0 absolute  h-full md:gap-5 flex flex-col md:flex-row-reverse items-center  default-container">
+          <div className="w-full pt-10 text-white">
             <Fade left>
-              <h1 className="text-3xl opacity-50 md:5xl tracking-wide font-bold">
+              <h1 className="text-xl text-center md:text-left opacity-50 md:5xl tracking-wide font-bold">
                 {sliderData[currentSlide]?.title}
               </h1>
               <hr className="mt-5 mb-1" />
             </Fade>
             <p className="py-4 opacity-90 text-sm">
-              {sliderData[currentSlide]?.description}
+              {sliderData[currentSlide]?.description?.slice(0, 300)}...
             </p>
           </div>
-          <div className="w-full">
+          <div className="w-full h-full md:h-auto">
             <Lottie animationData={animation} loop={true} />;
           </div>
         </div>

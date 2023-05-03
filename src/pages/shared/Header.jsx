@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Hamburger from "hamburger-react";
 import { AuthContext } from "../../Context/AuthProvider";
+import { Fade } from "react-reveal";
 const Header = () => {
   const { user, userLogout } = useContext(AuthContext);
   const [isOpen, setOpen] = useState(false);
@@ -9,26 +10,30 @@ const Header = () => {
   const handleLogout = () => {
     userLogout();
   };
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
-    <div>
-      <div className="flex z-50 flex-col gap-5 md:gap-0 md:flex-row md:justify-between md:items-center default-container mt-4 md:mt-0 ">
-        <div className="flex justify-between pb-3 md:pb-0 items-center">
-          <h3 className="font-extrabold">
-            <span style={{ fontFamily: `'Pacifico', cursive` }}>
-              <Link className="text-xl ps-5 md:ps-0 md:text-2xl" to="/">
-                Spice<span className="primary-text">Palate</span>
-              </Link>
-            </span>
-          </h3>
-          <span className="md:hidden">
-            <Hamburger toggled={isOpen} toggle={setOpen} />
+    <div className="flex z-50 flex-col gap-5 md:gap-0 md:flex-row md:justify-between md:items-center default-container mt-4 md:mt-0 ">
+      <div className="flex justify-between md:pb-0 items-center">
+        <h3 className="font-extrabold">
+          <span style={{ fontFamily: `'Pacifico', cursive` }}>
+            <Link className="text-xl ps-5 md:ps-0 md:text-2xl" to="/">
+              Spice<span className="primary-text">Palate</span>
+            </Link>
           </span>
-        </div>
+        </h3>
+        <span className="md:hidden">
+          <Hamburger toggled={isOpen} toggle={setOpen} />
+        </span>
+      </div>
+      <Fade right>
         <ul
-          className={`flex absolute md:static gap-4 flex-col md:flex-row bg-blue-50 p-8 md:bg-transparent md:text-black font-bold text-base ${
+          onClick={handleClose}
+          className={`flex h-80 md:h-auto absolute z-50 md:static gap-4 flex-col md:flex-row bg-blue-50 p-8 md:bg-transparent md:text-black font-bold text-base ${
             isOpen
-              ? "top-16 mt-1 z-20 duration-700 left-0"
-              : "-left-60 top-16 overflow-hidden duration-700"
+              ? "top-20 mt-1 z-50 duration-700 left-0"
+              : "-left-60 top-20 overflow-hidden duration-700"
           }`}
         >
           <NavLink
@@ -36,12 +41,6 @@ const Header = () => {
             to="/"
           >
             Home
-          </NavLink>
-          <NavLink
-            className={({ isActive }) => (isActive ? "primary-text" : "")}
-            to={`${user ? "/dish" : "/login"}`}
-          >
-            Popular Dish
           </NavLink>
           <NavLink
             className={({ isActive }) => (isActive ? "primary-text" : "")}
@@ -61,34 +60,43 @@ const Header = () => {
           >
             Contact us
           </NavLink>
-          <span className="md:hidden">
-            <Link to="/login">
-              <button className="primary-btn ">Login</button>
-            </Link>
-          </span>
-        </ul>
-        {user ? (
-          <span className="hidden md:flex  gap-5">
-            <div className="avatar">
-              <div className="w-14 rounded-full">
-                <img src={user?.photoURL} alt="userPhoto" />
+          {user ? (
+            <span className="md:hidden flex flex-col gap-4">
+              <div className="avatar">
+                <div className="w-14 rounded-full">
+                  <img src={user?.photoURL} alt="userPhoto" />
+                </div>
               </div>
+              <button onClick={handleLogout} className="primary-btn  md:hidden">
+                Logout
+              </button>
+            </span>
+          ) : (
+            <Link to="/Login">
+              <button className="primary-btn md:hidden">Login</button>
+            </Link>
+          )}
+        </ul>
+      </Fade>
+      {user ? (
+        <span className="hidden md:flex  gap-5">
+          <div className="avatar">
+            <div className="w-14 rounded-full">
+              <img src={user?.photoURL} alt="userPhoto" />
             </div>
-            <button
-              onClick={handleLogout}
-              className="primary-btn hidden md:inline-block"
-            >
-              Logout
-            </button>
-          </span>
-        ) : (
-          <Link to="/Login">
-            <button className="primary-btn hidden md:inline-block">
-              Login
-            </button>
-          </Link>
-        )}
-      </div>
+          </div>
+          <button
+            onClick={handleLogout}
+            className="primary-btn hidden md:inline-block"
+          >
+            Logout
+          </button>
+        </span>
+      ) : (
+        <Link to="/Login">
+          <button className="primary-btn hidden md:inline-block">Login</button>
+        </Link>
+      )}
     </div>
   );
 };

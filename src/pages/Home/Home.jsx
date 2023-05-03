@@ -12,7 +12,7 @@ const Home = () => {
 
   return (
     <div>
-      <div className="h-[calc(100vh-110px)] -z-20 relative">
+      <div className="h-[calc(100vh-110px)]  relative">
         <HeaderBanner />
       </div>
       <Zoom>
