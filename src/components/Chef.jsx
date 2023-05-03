@@ -1,11 +1,12 @@
 import React from "react";
 import { Fade } from "react-reveal";
 const Chef = ({ chef }) => {
-  const { chefPhoto, chefName } = chef;
+  const { id, chefPhoto, chefName, numberOfRecipes, likes, yearsOfExperience } =
+    chef;
   return (
     <div>
       <Fade left>
-        <div className="card w-full bg-base-100 shadow-xl">
+        <div className="card w-full bg-base-100 h-full shadow-xl">
           <div className="relative min-h-[40%]  object-contain overflow-hidden bg-cover bg-no-repeat">
             <img
               src={chefPhoto}
@@ -16,12 +17,16 @@ const Chef = ({ chef }) => {
           <div className="card-body">
             <h2 className="card-title">
               {chefName}
-              <div className="badge badge-secondary">NEW</div>
+              <div className="badge badge-secondary"></div>
             </h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
+            <p className="text-sm opacity-70 leading-snug ">
+              Experience - {yearsOfExperience}
+            </p>
+            <p className="text-sm opacity-70 leading-snug pb-3 ">
+              Total Recipes - {numberOfRecipes}
+            </p>
             <div className="card-actions justify-end">
-              <div className="badge badge-outline">Fashion</div>
-              <div className="badge badge-outline">Products</div>
+              <button className="secondary-btn">View Recipes</button>
             </div>
           </div>
         </div>
