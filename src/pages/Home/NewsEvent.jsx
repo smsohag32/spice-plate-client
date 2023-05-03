@@ -3,7 +3,6 @@ import React from "react";
 const NewsEvent = () => {
   return (
     <div className="default-container py-10 text-white">
-      <h1></h1>
       {/* title */}
       <div
         className="gap-5"
