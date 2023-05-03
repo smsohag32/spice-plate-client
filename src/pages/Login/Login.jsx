@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 // login component
@@ -10,7 +10,8 @@ const Login = () => {
   const { loginUser, googleLogin, githubLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
   // handle user login
   const handleLogin = (e) => {
     e.preventDefault();
@@ -28,7 +29,7 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         setSuccess("Login Successful");
-        navigate("/");
+        navigate(from, { replace: true });
         e.target.reset();
       })
       .catch((error) => {

@@ -1,8 +1,8 @@
 import React from "react";
-import HeaderBanner from "../../components/HeaderBanner";
-import SubNewsLetter from "../../components/SubNewsLetter";
+import HeaderBanner from "./HeaderBanner";
+import SubNewsLetter from "./SubNewsLetter";
 import Chefs from "../../components/Chefs";
-import NewsEvent from "../../components/NewsEvent";
+import NewsEvent from "./NewsEvent";
 import { useLoaderData } from "react-router-dom";
 import { Zoom } from "react-reveal";
 import bg from "../../assets/bg/bg1.webp";

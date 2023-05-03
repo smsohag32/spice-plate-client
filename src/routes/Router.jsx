@@ -8,6 +8,8 @@ import Recipes from "../pages/Recipes/Recipes";
 import Dashboard from "../pages/Dashboard.jsx/Dashboard";
 import Contact from "../pages/Contact/Contact";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
+import RecipesLayout from "../Layouts/RecipesLayout";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +36,12 @@ const router = createBrowserRouter([
       },
       {
         path: "recipes",
-        element: <Recipes />,
+        element: (
+          <PrivateRoute>
+            <RecipesLayout />
+          </PrivateRoute>
+        ),
+        // loader: ({params}) => fetch()
       },
       {
         path: "contact",

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Lottie from "lottie-react";
 import Fade from "react-reveal/Fade";
-import animation from "../assets/animation/animation.json";
-import bg from "../assets/bg/bg1.webp";
+import animation from "../../assets/animation/animation.json";
+import bg from "../../assets/bg/bg1.webp";
 
 const HeaderBanner = () => {
   const [sliderData, setSliderData] = useState([]);
