@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Banner from "../pages/Recipes/Banner";
 import Recipes from "../pages/Recipes/Recipes";
 import { useLoaderData, useParams } from "react-router-dom";
-import bg from "../assets/bg/bg1.webp";
+import bg from "../assets/bg/bg2.jpg";
 const RecipesLayout = () => {
   const chefs = useLoaderData();
   const { id } = useParams();

@@ -6,7 +6,7 @@ const Recipes = ({ recipes }) => {
   return (
     <div className="default-container py-10">
       <div
-        className="gap-5"
+        className="gap-5 mb-5"
         style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
       >
         <div style={{ flex: 1, height: "1px", backgroundColor: "#e21b70" }} />
@@ -23,7 +23,7 @@ const Recipes = ({ recipes }) => {
         <div style={{ flex: 1, height: "1px", backgroundColor: "#e21b70" }} />
       </div>
       <Fade left>
-        <div className="grid grid-cols-1 gap-7 px-7 md:px-12">
+        <div className="grid grid-cols-1 px-7 gap-10 md:px-12">
           {recipes?.map((recipe) => (
             <Recipe key={recipe.id} recipe={recipe} />
           ))}

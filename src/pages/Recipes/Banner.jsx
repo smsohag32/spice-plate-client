@@ -13,14 +13,12 @@ const Banner = ({ chefs }) => {
   return (
     <div className="default-container my-10 flex flex-col md:flex-row justify-center items-center gap-5 md:gap-10">
       {/* img */}
-      <div className="w-full">
-        <div className="relative min-w-[50%] min-h-full overflow-hidden bg-cover bg-no-repeat">
-          <img
-            src={chefPhoto}
-            className=" transition w-full object-cover h-full overflow-hidden rounded-xl duration-500  ease-in-out hover:scale-110"
-            alt="chef"
-          />
-        </div>
+      <div className="relative min-w-[50%]  h-full overflow-hidden bg-cover bg-no-repeat">
+        <img
+          src={chefPhoto}
+          className=" transition w-full object-cover min-h-full overflow-hidden rounded-xl duration-500  ease-in-out hover:scale-110"
+          alt="chef"
+        />
       </div>
       {/* content */}
       <Fade right>

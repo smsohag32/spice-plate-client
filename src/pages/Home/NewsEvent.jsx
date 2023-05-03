@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NewsEvent = () => {
   return (
@@ -24,7 +25,7 @@ const NewsEvent = () => {
 
       <div className="mt-10 grid gap-5">
         <div className="card lg:card-side bg-base-100 shadow-xl">
-          <div className="relative min-w-[50%] min-h-full overflow-hidden bg-cover bg-no-repeat">
+          <div className="relative min-w-[50%]  overflow-hidden bg-cover bg-no-repeat">
             <img
               src="https://tecdn.b-cdn.net/img/new/fluid/city/113.webp"
               className=" transition duration-300 h-full ease-in-out hover:scale-110"
@@ -42,12 +43,16 @@ const NewsEvent = () => {
               Bangladeshi cooking techniques.
             </p>
             <div className="card-actions justify-end">
-              <button className=" secondary-btn outline-none">Reed More</button>
+              <Link to="/events">
+                <button className=" secondary-btn outline-none">
+                  Reed More
+                </button>
+              </Link>
             </div>
           </div>
         </div>
         <div className="card lg:card-side bg-base-100 shadow-xl">
-          <div className="relative min-w-[50%] min-h-full overflow-hidden bg-cover bg-no-repeat">
+          <div className="relative min-w-[50%] overflow-hidden bg-cover bg-no-repeat">
             <img
               src="https://tecdn.b-cdn.net/img/new/fluid/city/113.webp"
               className=" transition duration-300 h-full ease-in-out hover:scale-110"
@@ -65,12 +70,16 @@ const NewsEvent = () => {
               Bangladeshi cooking techniques.
             </p>
             <div className="card-actions justify-end">
-              <button className=" secondary-btn outline-none">Reed More</button>
+              <Link to="/events">
+                <button className=" secondary-btn outline-none">
+                  Reed More
+                </button>
+              </Link>
             </div>
           </div>
         </div>
         <div className="card lg:card-side bg-base-100 shadow-xl">
-          <div className="relative min-w-[50%] min-h-full overflow-hidden bg-cover bg-no-repeat">
+          <div className="relative min-w-[50%] overflow-hidden bg-cover bg-no-repeat">
             <img
               src="https://tecdn.b-cdn.net/img/new/fluid/city/113.webp"
               className=" transition duration-300 h-full ease-in-out hover:scale-110"
@@ -88,7 +97,11 @@ const NewsEvent = () => {
               Bangladeshi cooking techniques.
             </p>
             <div className="card-actions justify-end">
-              <button className=" secondary-btn outline-none">Reed More</button>
+              <Link to="/events">
+                <button className=" secondary-btn outline-none">
+                  Reed More
+                </button>
+              </Link>
             </div>
           </div>
         </div>
