@@ -5,7 +5,7 @@ import Chefs from "../../components/Chefs";
 import NewsEvent from "../../components/NewsEvent";
 import { useLoaderData } from "react-router-dom";
 import { Zoom } from "react-reveal";
-
+import bg from "../../assets/bg/bg1.webp";
 const Home = () => {
   const chefs = useLoaderData();
 
@@ -22,7 +22,16 @@ const Home = () => {
       <div className="default-container">
         <Chefs chefs={chefs} />
       </div>
-      <NewsEvent />
+      <div
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)),url('${bg}')`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+        className=""
+      >
+        <NewsEvent />
+      </div>
     </div>
   );
 };
