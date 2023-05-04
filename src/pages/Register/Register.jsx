@@ -1,6 +1,4 @@
 import React, { useContext, useState } from "react";
-import { FaGithub } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
@@ -97,7 +95,7 @@ const Register = () => {
   };
 
   return (
-    <div className="bg-slate-50">
+    <div data-aos="fade-up-left" className="bg-slate-50">
       <div className="default-container py-4">
         <div className="card w-full max-w-md mx-auto my-5 shadow-2xl bg-base-100">
           <form onSubmit={handleRegister} className="card-body">

@@ -12,6 +12,7 @@ const Login = () => {
   const [success, setSuccess] = useState("");
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
+
   // handle user login
   const handleLogin = (e) => {
     e.preventDefault();
@@ -42,6 +43,7 @@ const Login = () => {
         }
       });
   };
+
   //   handle google login
   const handleGoogleLogin = () => {
     googleLogin()
@@ -50,6 +52,7 @@ const Login = () => {
       })
       .catch(error);
   };
+
   //   handle github login
   const handleGitHubLogin = () => {
     githubLogin().then((result) => {
@@ -58,7 +61,7 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-slate-50">
+    <div data-aos="zoom-in-left" className="bg-slate-50">
       <div className="default-container py-4">
         <div className="card w-full max-w-sm md:max-w-md mx-auto my-5 shadow-2xl bg-base-100">
           <form onSubmit={handleLogin} className="card-body">
@@ -95,7 +98,10 @@ const Login = () => {
             <div className="form-control">
               <span className="text-xs">
                 Don't have an account? please
-                <Link className="primary-text font-medium link" to="/register">
+                <Link
+                  className="primary-text ms-1 font-medium link"
+                  to="/register"
+                >
                   Register
                 </Link>
               </span>
@@ -110,7 +116,6 @@ const Login = () => {
                 Login
               </button>
             </div>
-            <hr className="mt-2 border-2" />
           </form>
           <div className="flex flex-col mb-8 gap-2">
             <button

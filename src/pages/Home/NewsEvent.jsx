@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import HeadShake from "react-reveal/HeadShake";
 import img from "../../assets/dish/dish1.jpg";
 import img2 from "../../assets/dish/dish2.jpg";
-import img3 from "../../assets/dish/dish3.jpg";
-import img4 from "../../assets/dish/dish4.jpg";
+
+import { Fade } from "react-reveal";
 const NewsEvent = () => {
   return (
     <div className="default-container py-10 text-white">
@@ -27,7 +28,10 @@ const NewsEvent = () => {
       </div>
 
       <div className="mt-10 grid gap-5">
-        <div className="card lg:card-side bg-base-100 shadow-xl">
+        <div
+          data-aos="fade-left"
+          className="card  lg:card-side bg-base-100 shadow-xl"
+        >
           <div className="relative min-w-[50%] overflow-hidden bg-cover bg-no-repeat">
             <img
               src={img}
@@ -37,14 +41,16 @@ const NewsEvent = () => {
           </div>
           <div className="card-body w-full text-black">
             <h2 className="card-title">Bangladeshi Food Festival</h2>
-            <p>
-              This festival celebrated the rich and diverse culinary traditions
-              of Bangladesh. It featured a variety of traditional dishes from
-              different parts of the country, as well as modern fusion cuisine
-              that showcased local ingredients and flavors. There were also
-              cooking demonstrations, food contests, and workshops on
-              Bangladeshi cooking techniques.
-            </p>
+            <HeadShake>
+              <p>
+                This festival celebrated the rich and diverse culinary
+                traditions of Bangladesh. It featured a variety of traditional
+                dishes from different parts of the country, as well as modern
+                fusion cuisine that showcased local ingredients and flavors.
+                There were also cooking demonstrations, food contests, and
+                workshops on Bangladeshi cooking techniques.
+              </p>
+            </HeadShake>
             <div className="card-actions justify-end">
               <Link to="/events">
                 <button className=" secondary-btn outline-none">
@@ -54,24 +60,29 @@ const NewsEvent = () => {
             </div>
           </div>
         </div>
-        <div className="card lg:card-side bg-base-100 shadow-xl">
+        <div
+          data-aos="fade-up-right"
+          className="card lg:card-side bg-base-100 shadow-xl"
+        >
           <div className="relative min-w-[50%] overflow-hidden bg-cover bg-no-repeat">
             <img
-              src={img}
+              src={img2}
               className=" transition duration-300 h-full ease-in-out hover:scale-110"
               alt="Louvre"
             />
           </div>
-          <div className="card-body text-black">
+          <div data-aos="fade-down-left" className="card-body text-black">
             <h2 className="card-title">Bangladeshi Food Festival</h2>
-            <p>
-              This festival celebrated the rich and diverse culinary traditions
-              of Bangladesh. It featured a variety of traditional dishes from
-              different parts of the country, as well as modern fusion cuisine
-              that showcased local ingredients and flavors. There were also
-              cooking demonstrations, food contests, and workshops on
-              Bangladeshi cooking techniques.
-            </p>
+            <Fade left>
+              <p>
+                This festival celebrated the rich and diverse culinary
+                traditions of Bangladesh. It featured a variety of traditional
+                dishes from different parts of the country, as well as modern
+                fusion cuisine that showcased local ingredients and flavors.
+                There were also cooking demonstrations, food contests, and
+                workshops on Bangladeshi cooking techniques.
+              </p>
+            </Fade>
             <div className="card-actions justify-end">
               <Link to="/events">
                 <button className=" secondary-btn outline-none">
@@ -81,7 +92,10 @@ const NewsEvent = () => {
             </div>
           </div>
         </div>
-        <div className="card lg:card-side bg-base-100 shadow-xl">
+        <div
+          data-aos="zoom-in"
+          className="card  lg:card-side bg-base-100 shadow-xl"
+        >
           <div className="relative min-w-[50%] overflow-hidden bg-cover bg-no-repeat">
             <img
               src={img}
@@ -91,18 +105,20 @@ const NewsEvent = () => {
           </div>
           <div className="card-body text-black">
             <h2 className="card-title">Bangladeshi Food Festival</h2>
-            <p>
-              This festival celebrated the rich and diverse culinary traditions
-              of Bangladesh. It featured a variety of traditional dishes from
-              different parts of the country, as well as modern fusion cuisine
-              that showcased local ingredients and flavors. There were also
-              cooking demonstrations, food contests, and workshops on
-              Bangladeshi cooking techniques.
-            </p>
+            <Fade right>
+              <p>
+                This festival celebrated the rich and diverse culinary
+                traditions of Bangladesh. It featured a variety of traditional
+                dishes from different parts of the country, as well as modern
+                fusion cuisine that showcased local ingredients and flavors.
+                There were also cooking demonstrations, food contests, and
+                workshops on Bangladeshi cooking techniques.
+              </p>
+            </Fade>
             <div className="card-actions justify-end">
               <Link to="/events">
                 <button className=" secondary-btn outline-none">
-                  Reed More
+                  <Fade top>Reed More</Fade>
                 </button>
               </Link>
             </div>
