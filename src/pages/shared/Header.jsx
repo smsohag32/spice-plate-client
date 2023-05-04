@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Hamburger from "hamburger-react";
 import { AuthContext } from "../../Context/AuthProvider";
 import { Fade } from "react-reveal";
 const Header = () => {
+  const navigate = useNavigate();
   const { user, userLogout } = useContext(AuthContext);
   const [isOpen, setOpen] = useState(false);
   //   handle user logout
@@ -13,9 +14,13 @@ const Header = () => {
   const handleClose = () => {
     setOpen(false);
   };
+  const handleDashboard = () => {
+    navigate("/dashboard");
+  };
+
   return (
     <div className="flex z-50 flex-col gap-5 md:gap-0 md:flex-row md:justify-between md:items-center default-container mt-4 md:mt-0 ">
-      <div className="flex justify-between md:pb-0 items-center">
+      <div className="flex justify-between md:pb-0 pb-5 items-center">
         <h3 className="font-extrabold">
           <span style={{ fontFamily: `'Pacifico', cursive` }}>
             <Link className="text-xl ps-5 md:ps-0 md:text-2xl" to="/">
@@ -62,8 +67,12 @@ const Header = () => {
           </NavLink>
           {user ? (
             <span className="md:hidden flex flex-col gap-4">
-              <div className="avatar">
-                <div className="w-14 rounded-full">
+              <div
+                onClick={handleDashboard}
+                title={user ? user.displayName : ""}
+                className="avatar"
+              >
+                <div className="w-10 rounded-full">
                   <img src={user?.photoURL} alt="userPhoto" />
                 </div>
               </div>
@@ -80,11 +89,15 @@ const Header = () => {
       </Fade>
       {user ? (
         <span className="hidden md:flex  gap-5">
-          <div className="avatar">
-            <div className="w-14 rounded-full">
+          <span
+            onClick={handleDashboard}
+            title={user ? user.displayName : ""}
+            className="avatar"
+          >
+            <div className="w-10 rounded-full">
               <img src={user?.photoURL} alt="userPhoto" />
             </div>
-          </div>
+          </span>
           <button
             onClick={handleLogout}
             className="primary-btn hidden md:inline-block"

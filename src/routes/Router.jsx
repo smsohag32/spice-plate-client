@@ -10,6 +10,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import RecipesLayout from "../Layouts/RecipesLayout";
 import Events from "../pages/Events/Events";
+import Update from "../pages/Dashboard.jsx/Update";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,12 @@ const router = createBrowserRouter([
   {
     path: "dashboard",
     element: <Dashboard />,
+    children: [
+      {
+        path: "update",
+        element: <Update />,
+      },
+    ],
   },
 ]);
 
