@@ -1,4 +1,5 @@
 import React from "react";
+import { AiFillLike } from "react-icons/ai";
 import { Fade } from "react-reveal";
 import { Link } from "react-router-dom";
 const Chef = ({ chef }) => {
@@ -16,17 +17,18 @@ const Chef = ({ chef }) => {
             />
           </div>
           <div className="card-body">
-            <h2 className="card-title">
-              {chefName}
-              <div className="badge badge-secondary"></div>
-            </h2>
+            <h2 className="card-title">{chefName}</h2>
             <p className="text-sm opacity-70 leading-snug ">
-              Experience - {yearsOfExperience}
+              {yearsOfExperience} years of Experience
             </p>
             <p className="text-sm opacity-70 leading-snug pb-3 ">
               Total Recipes - {numberOfRecipes}
             </p>
-            <div className="card-actions justify-end">
+            <div className="card-actions justify-between items-center">
+              <div className="badge text-sm primary-white ">
+                <AiFillLike className="mr-2" />
+                {likes}
+              </div>
               <Link to={`/recipes/${id}`}>
                 <button className="secondary-btn">View Recipes</button>
               </Link>

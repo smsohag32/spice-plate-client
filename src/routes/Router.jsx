@@ -38,6 +38,7 @@ const router = createBrowserRouter([
       {
         path: "blogs",
         element: <Blogs />,
+        loader: () => fetch(`http://localhost:4200/faqs`),
       },
       {
         path: "recipes/:id",
