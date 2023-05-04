@@ -2,7 +2,7 @@ import React from "react";
 import { FaMailBulk } from "react-icons/fa";
 const SubNewsLetter = () => {
   return (
-    <div className="py-10 md:w-[80%] rounded-md mx-auto px-10 bg-[#e21b70]">
+    <div className="py-10 md:w-[80%] rounded-md mx-auto px-5 md:px-10 bg-[#e21b70]">
       <form>
         <h3 className="text-center text-white font-extrabold text-xl mb-5">
           Subscribe to our newsLetter
