@@ -5,12 +5,13 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Blogs from "../pages/Blogs/Blogs";
 import Dashboard from "../pages/Dashboard.jsx/Dashboard";
-import Contact from "../pages/Contact/Contact";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import RecipesLayout from "../Layouts/RecipesLayout";
 import Events from "../pages/Events/Events";
 import Update from "../pages/Dashboard.jsx/Update";
+import chefsDataLoad from "../utils/chefsDataLoad";
+import About from "../pages/About/About";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch(`https://spice-palate-server090.vercel.app/chefs`),
+        loader: chefsDataLoad,
       },
       {
         path: "login",
@@ -51,8 +52,8 @@ const router = createBrowserRouter([
           fetch(`https://spice-palate-server090.vercel.app/chefs/${params.id}`),
       },
       {
-        path: "contact",
-        element: <Contact />,
+        path: "about",
+        element: <About />,
       },
     ],
   },

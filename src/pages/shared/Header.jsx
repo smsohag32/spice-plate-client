@@ -61,9 +61,9 @@ const Header = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) => (isActive ? "primary-text" : "")}
-            to="/contact"
+            to="/about"
           >
-            Contact us
+            About us
           </NavLink>
           {user ? (
             <span className="md:hidden flex flex-col gap-4">

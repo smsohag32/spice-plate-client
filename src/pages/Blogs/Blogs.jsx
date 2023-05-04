@@ -6,6 +6,11 @@ import Faq from "../../components/Faq";
 const ref = createRef();
 const Blogs = () => {
   const faqs = useLoaderData();
+  const options = {
+    orientation: "landscape",
+    unit: "in",
+    format: [10, 18],
+  };
   return (
     <div>
       <div
@@ -18,7 +23,7 @@ const Blogs = () => {
         }}
       >
         <div className="text-white flex justify-center items-center h-full default-container">
-          <Pdf targetRef={ref} filename="code-example.pdf">
+          <Pdf targetRef={ref} options={options} filename="code-example.pdf">
             {({ toPdf }) => (
               <button className="primary-btn" onClick={toPdf}>
                 Generate Pdf
