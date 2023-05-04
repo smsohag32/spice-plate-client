@@ -35,7 +35,7 @@ const Dishes = () => {
       <Marquee direction="right" pauseOnHover={true} speed={100}>
         <div className="flex mr-5 gap-5">
           <Fade right>
-            <div className="card w-96 shadow-xl">
+            <div className="card w-60 md:w-96 shadow-xl">
               <div className="relative min-h-[40%]  object-contain overflow-hidden bg-cover bg-no-repeat">
                 <img
                   style={{

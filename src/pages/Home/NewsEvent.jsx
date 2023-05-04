@@ -35,7 +35,7 @@ const NewsEvent = () => {
           <div className="relative min-w-[50%] overflow-hidden bg-cover bg-no-repeat">
             <img
               src={img}
-              className=" transition object-fill duration-300 h-full ease-in-out hover:scale-110"
+              className=" transition object-cover w-full duration-300 h-full ease-in-out hover:scale-110"
               alt="Louvre"
             />
           </div>
@@ -67,7 +67,7 @@ const NewsEvent = () => {
           <div className="relative min-w-[50%] overflow-hidden bg-cover bg-no-repeat">
             <img
               src={img2}
-              className=" transition duration-300 h-full ease-in-out hover:scale-110"
+              className=" transition object-contain w-full duration-300 h-full ease-in-out hover:scale-110"
               alt="Louvre"
             />
           </div>
@@ -96,10 +96,10 @@ const NewsEvent = () => {
           data-aos="zoom-in"
           className="card  lg:card-side bg-base-100 shadow-xl"
         >
-          <div className="relative min-w-[50%] overflow-hidden bg-cover bg-no-repeat">
+          <div className="relative min-w-[50%] w-full h-full overflow-hidden bg-cover bg-no-repeat">
             <img
               src={img}
-              className=" transition duration-300 h-full ease-in-out hover:scale-110"
+              className=" transition duration-300 object-fill h-full w-[100%] ease-in-out hover:scale-110"
               alt="Louvre"
             />
           </div>
