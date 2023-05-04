@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Banner from "../pages/Recipes/Banner";
 import Recipes from "../pages/Recipes/Recipes";
 import { useLoaderData, useParams } from "react-router-dom";
-import bg from "../assets/bg/bg2.jpg";
+import bg from "../assets/bg/bg3.jpg";
 const RecipesLayout = () => {
   const chefs = useLoaderData();
   const { id } = useParams();
+  console.log(id);
+
   const [recipes, setRecipes] = useState([]);
   console.log(chefs);
   console.log(recipes);
 
   //   recipes data load
   useEffect(() => {
-    fetch(`http://localhost:4200/recipes/${id}`)
+    fetch(`https://spice-palate-server090.vercel.app/recipes/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setRecipes(data);

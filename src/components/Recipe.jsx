@@ -1,12 +1,25 @@
 import { Rating } from "@smastrom/react-rating";
-import React from "react";
+import React, { useState } from "react";
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FcLike } from "react-icons/fc";
 import "@smastrom/react-rating/style.css";
-
+import Swal from "sweetalert2";
 const Recipe = ({ recipe }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
   const { recipeName, description, ingredients, cookingSteps, rating } = recipe;
   //   const r = Math.round(rating);
+
+  //   handle favorite
+  const handleFavorite = () => {
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Successful added to favorite.",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    setIsFavorite(true);
+  };
   return (
     <div>
       <div className="card w-full relative bg-base-100 shadow-xl">
@@ -32,9 +45,13 @@ const Recipe = ({ recipe }) => {
               ))}
             </div>
           </div>
-          <div className="absolute top-4 right-10">
-            <button>
-              <AiFillLike></AiFillLike>
+          <div className=" mt-2 text-right">
+            <button
+              onClick={handleFavorite}
+              disabled={isFavorite}
+              className="btn bg-[#e21b70] outline-none border-none btn-circle"
+            >
+              <AiFillLike className="text-2xl"></AiFillLike>
             </button>
           </div>
         </div>

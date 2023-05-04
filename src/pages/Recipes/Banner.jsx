@@ -1,6 +1,7 @@
 import React from "react";
 import { Fade } from "react-reveal";
 import { FcLike } from "react-icons/fc";
+import { AiFillLike } from "react-icons/ai";
 const Banner = ({ chefs }) => {
   const {
     chefName,
@@ -31,21 +32,18 @@ const Banner = ({ chefs }) => {
             <small>{shortBio}</small>
           </p>
           <p className="text-right mt-2">
-            <span className="text-sm opacity-70">Experiences - </span>
-            <span className="primary-text font-bold">
-              {yearsOfExperience}
-            </span>{" "}
-            <span className="text-sm opacity-80">years</span>
+            <span className="text-xl font-bold">{yearsOfExperience}</span>{" "}
+            <span className="text-sm opacity-80">years experiences</span>
           </p>
           <p className="text-right mt-2">
             <span className="text-sm opacity-70">Total Recipes - </span>
-            <span className="primary-text font-bold">{numberOfRecipes}</span>
+            <span className=" text-xl font-bold">{numberOfRecipes}</span>
             <span className="text-sm opacity-80"> Items</span>
           </p>
           <Fade left>
-            <div className="mt-5 flex items-center gap-3 justify-center">
-              <FcLike className="text-2xl"></FcLike>
-              <p className="font-bold">{likes}</p>
+            <div className="mt-5 flex  gap-3 justify-end">
+              <AiFillLike className="text-2xl primary-text" />
+              <p className=" font-bold">{likes}</p>
             </div>
           </Fade>
         </div>

@@ -17,18 +17,11 @@ const router = createBrowserRouter([
     path: "/",
     element: <Main />,
     errorElement: <ErrorPage />,
-    loader: () =>
-      fetch(
-        `https://spice-palate-backend-server-g30xbxb23-smsohag32.vercel.app/chefs`
-      ),
     children: [
       {
         path: "/",
         element: <Home />,
-        loader: () =>
-          fetch(
-            `https://spice-palate-backend-server-g30xbxb23-smsohag32.vercel.app/chefs`
-          ),
+        loader: () => fetch(`https://spice-palate-server090.vercel.app/chefs`),
       },
       {
         path: "login",
@@ -45,22 +38,17 @@ const router = createBrowserRouter([
       {
         path: "blogs",
         element: <Blogs />,
-        loader: () =>
-          fetch(
-            `https://spice-palate-backend-server-g30xbxb23-smsohag32.vercel.app/faqs`
-          ),
+        loader: () => fetch(`https://spice-palate-server090.vercel.app/faqs`),
       },
       {
-        path: "recipes/:id",
+        path: "/:id",
         element: (
           <PrivateRoute>
             <RecipesLayout />
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://spice-palate-backend-server-g30xbxb23-smsohag32.vercel.app/chefs${params.id}`
-          ),
+          fetch(`https://spice-palate-server090.vercel.app/chefs/${params.id}`),
       },
       {
         path: "contact",

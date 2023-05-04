@@ -1,6 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
-import Chef from "./Chef";
+import Chef from "../../components/Chef";
 
 const Chefs = ({ chefs }) => {
   return (

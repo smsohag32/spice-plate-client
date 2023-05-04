@@ -8,16 +8,18 @@ const PrivateRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <ThreeDots
-        height="80"
-        width="80"
-        radius="9"
-        color="#4fa94d"
-        ariaLabel="three-dots-loading"
-        wrapperStyle={{}}
-        wrapperClassName=""
-        visible={true}
-      />
+      <span className="flex h-[calc(100vh-120px)] w-full items-center justify-center">
+        <ThreeDots
+          height="120"
+          width="130"
+          radius="9"
+          color="#e21b70"
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{}}
+          wrapperClassName=""
+          visible={true}
+        />
+      </span>
     );
   } else {
     if (user) {
