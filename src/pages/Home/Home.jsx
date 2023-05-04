@@ -11,7 +11,7 @@ const Home = () => {
   const chefs = useLoaderData();
 
   return (
-    <div>
+    <>
       <div className="h-[calc(100vh-110px)]  relative">
         <HeaderBanner />
       </div>
@@ -36,7 +36,7 @@ const Home = () => {
       <div className="mt-7">
         <Dishes />
       </div>
-    </div>
+    </>
   );
 };
 

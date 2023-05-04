@@ -3,9 +3,11 @@ import Lottie from "lottie-react";
 import Fade from "react-reveal/Fade";
 import animation from "../../assets/animation/animation.json";
 import bg from "../../assets/bg/bg3.jpg";
+
 const HeaderBanner = () => {
   const [sliderData, setSliderData] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
+
   //   slider data fetching
   useEffect(() => {
     fetch(`https://spice-palate-server090.vercel.app/banner`)

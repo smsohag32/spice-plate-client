@@ -36,7 +36,7 @@ const Header = () => {
       <Fade right>
         <ul
           onClick={handleClose}
-          className={`flex h-80 md:h-auto absolute z-50 md:static gap-4 flex-col md:flex-row bg-blue-50 p-8 md:bg-transparent md:text-black font-bold text-base ${
+          className={`flex h-80 md:h-auto absolute z-50 md:static gap-4 flex-col md:flex-row bg-red-50 p-8 md:bg-transparent md:text-black font-bold text-base ${
             isOpen
               ? "top-20 mt-1 z-50 duration-700 left-0"
               : "-left-60 top-20 overflow-hidden duration-700"
