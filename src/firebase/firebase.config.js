@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBO3HVS55yZnih3O8bhCxmrcXn3GgDqpvk",
-  authDomain: "spice-palate.firebaseapp.com",
-  projectId: "spice-palate",
-  storageBucket: "spice-palate.appspot.com",
-  messagingSenderId: "936918928577",
-  appId: "1:936918928577:web:fe8a08424f1a0965015840"
+  apiKey:import.meta.env.SPICE_SPICE_apiKey,
+  authDomain:import.meta.env.SPICE_authDomain ,
+  projectId:import.meta.env.SPICE_projectId ,
+  storageBucket:import.meta.env.SPICE_storageBucket ,
+  messagingSenderId:import.meta.env.SPICE_messagingSenderId ,
+  appId:import.meta.env.SPICE_appId ,
 };
 
 // Initialize Firebase

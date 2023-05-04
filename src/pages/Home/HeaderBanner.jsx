@@ -9,7 +9,9 @@ const HeaderBanner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   //   slider data fetching
   useEffect(() => {
-    fetch(`http://localhost:4200/banner`)
+    fetch(
+      `https://spice-palate-backend-server-g30xbxb23-smsohag32.vercel.app/banner`
+    )
       .then((res) => res.json())
       .then((data) => setSliderData(data));
   }, []);
