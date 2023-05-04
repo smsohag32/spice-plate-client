@@ -7,10 +7,9 @@ import bg from "../../assets/bg/bg3.jpg";
 const HeaderBanner = () => {
   const [sliderData, setSliderData] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
-
   //   slider data fetching
   useEffect(() => {
-    fetch(`https://spice-palate-server090.vercel.app/banner`)
+    fetch(`https://spice-palate-server090.vercel.app/chefs/banner`)
       .then((res) => res.json())
       .then((data) => setSliderData(data));
   }, []);
