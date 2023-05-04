@@ -10,6 +10,7 @@ const Header = () => {
   //   handle user logout
   const handleLogout = () => {
     userLogout();
+    navigate("/login");
   };
   const handleClose = () => {
     setOpen(false);

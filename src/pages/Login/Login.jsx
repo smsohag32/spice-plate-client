@@ -33,18 +33,28 @@ const Login = () => {
         e.target.reset();
       })
       .catch((error) => {
-        setError("Something went wrong");
+        if (error.message.includes("wrong")) {
+          setError(`Password is not correct`);
+        } else if (error.message.includes("user-not")) {
+          setError("Account not found, create account");
+        } else {
+          setError(error.message);
+        }
       });
   };
   //   handle google login
   const handleGoogleLogin = () => {
-    googleLogin();
-    navigate("/");
+    googleLogin()
+      .then((result) => {
+        navigate(from, { replace: true });
+      })
+      .catch(error);
   };
   //   handle github login
   const handleGitHubLogin = () => {
-    // githubLogin();
-    navigate("/");
+    githubLogin().then((result) => {
+      navigate(from, { replace: true });
+    });
   };
 
   return (
@@ -84,7 +94,7 @@ const Login = () => {
             </div>
             <div className="form-control">
               <span className="text-xs">
-                Don't have an account? please{" "}
+                Don't have an account? please
                 <Link className="primary-text font-medium link" to="/register">
                   Register
                 </Link>
@@ -100,20 +110,22 @@ const Login = () => {
                 Login
               </button>
             </div>
-            <hr className="my-2 border-2" />
+            <hr className="mt-2 border-2" />
+          </form>
+          <div className="flex flex-col mb-8 gap-2">
             <button
               onClick={handleGoogleLogin}
-              className="btn mx-5 btn-outline flex justify-around hover:primary-text"
+              className="btn max-w-[90%] mx-auto btn-outline flex justify-around hover:primary-text"
             >
-              <FcGoogle className="text-2xl" /> Continue with google
+              <FcGoogle className="text-2xl mr-2" /> Continue with google
             </button>
             <button
               onClick={handleGitHubLogin}
-              className="btn mx-5 btn-outline flex justify-around hover:primary-text"
+              className="btn max-w-[90%] mx-auto btn-outline flex justify-around hover:primary-text"
             >
-              <FaGithub className="text-2xl" /> Continue with gitHub
+              <FaGithub className="text-2xl mr-2" /> Continue with gitHub
             </button>
-          </form>
+          </div>
         </div>
       </div>
     </div>
