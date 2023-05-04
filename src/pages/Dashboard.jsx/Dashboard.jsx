@@ -9,8 +9,8 @@ const Dashboard = () => {
       <div>
         <Header />
       </div>
-      <div className="default-container flex flex-col py-10 md:flex-row gap-5">
-        <div className="w-full">
+      <div className="default-container flex flex-col  items-center py-10 md:flex-row gap-5">
+        <div className=" w-full">
           <Profile />
         </div>
         <div className="w-full">

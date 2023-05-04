@@ -1,8 +1,10 @@
 # Spice Palate
 
-### Spice Palate is a website that offers a collection of recipes from various chefs, focusing on different cuisines around the world. The website has been developed using the Express.js framework for the backend and React.js for the frontend. It also uses various libraries and modules.
+### Spice Palate is a website that offers a collection of recipes from various chefs, focusing on different cuisines around in Bangladesh. The website has been developed using the Express.js framework for the backend and React.js for the frontend. It also uses various libraries and modules.
 
 ## Live Link : [Spice Palate](https://circle-jobs-sm.netlify.app/)
+
+## Server site Link : [Spice Palate server site](https://spice-palate-server090.vercel.app/)
 
 # Features
 

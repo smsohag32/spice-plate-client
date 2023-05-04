@@ -64,8 +64,7 @@ const Register = () => {
         e.target.reset();
       })
       .catch((error) => {
-        setError("Something went wrong !");
-        console.log(error);
+        setError(error.message);
       });
   };
   //   handle email validation

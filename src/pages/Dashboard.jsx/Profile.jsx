@@ -4,11 +4,16 @@ import { Link } from "react-router-dom";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
+  console.log(user);
   //   const { displayName, photoURL, email } = user;
   return (
-    <div className="card w-full bg-base-100 shadow-xl">
-      <figure>
-        <img src={user?.photoURL ? user.photoURL : ""} alt="Shoes" />
+    <div className="card bg-base-100 shadow-xl">
+      <figure className="w-full h-full">
+        <img
+          src={user?.photoURL ? user.photoURL : ""}
+          alt="photo"
+          className="object-cover"
+        />
       </figure>
       <div className="card-body">
         {user?.displayName && (
