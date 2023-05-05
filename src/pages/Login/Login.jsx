@@ -30,6 +30,7 @@ const Login = () => {
       return;
     } else if (!password) {
       setError("Please fill out password field");
+      return;
     }
     loginUser(email, password)
       .then((result) => {
@@ -64,10 +65,6 @@ const Login = () => {
       navigate(from, { replace: true });
     });
   };
-
-  // if (loading) {
-  //   return <Spinner />;
-  // }
 
   return (
     <div data-aos="zoom-in-left" className="bg-slate-50">

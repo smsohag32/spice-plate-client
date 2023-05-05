@@ -1,12 +1,10 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { addToDb, getToDB } from "../utils/fackDb";
 import { AuthContext } from "./AuthProvider";
-import Spinner from "../components/Spinner";
 
 export const FavRecipesContext = createContext({});
 
 const FavRecipesProvider = ({ children }) => {
-  const { loading } = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(true);
   const [allRecipes, setAllRecipes] = useState([]);
   const [favRecipes, setFavRecipes] = useState([]);
@@ -27,7 +25,7 @@ const FavRecipesProvider = ({ children }) => {
   useEffect(() => {
     async function fetchData() {
       const res = await fetch(
-        `https://spice-palate-server090.vercel.app/recipes`
+        "https://spice-palate-server090.vercel.app/recipes"
       );
       const data = await res.json();
       setAllRecipes(data);
@@ -52,9 +50,6 @@ const FavRecipesProvider = ({ children }) => {
     setFavRecipes(savedRec);
   }, [allRecipes]);
 
-  if (loading) {
-    return <Spinner />;
-  }
   return (
     <>
       <FavRecipesContext.Provider

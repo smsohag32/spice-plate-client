@@ -12,7 +12,7 @@ const Blogs = () => {
   const options = {
     orientation: "landscape",
     unit: "in",
-    format: [10, 18],
+    format: [15, 18],
   };
 
   return (
@@ -27,7 +27,7 @@ const Blogs = () => {
         }}
       >
         <div className="text-white flex justify-center items-center h-full default-container">
-          <Pdf targetRef={ref} options={options} filename="code-example.pdf">
+          <Pdf targetRef={ref} options={options} filename="faq.pdf">
             {({ toPdf }) => (
               <button className="primary-btn" onClick={toPdf}>
                 Generate Pdf
@@ -39,7 +39,7 @@ const Blogs = () => {
 
       {/* pdf generate content and faq */}
       <div ref={ref} className="w-[100%] h-full">
-        <div className="default-container mt-8">
+        <div className="default-container mb-10 mt-8">
           <h1 className="text-center opacity-50 text-2xl">FAQ</h1>
           <div className="grid mt-5 gap-10">
             {faqs?.map((faq) => (
