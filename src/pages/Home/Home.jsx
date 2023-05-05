@@ -7,9 +7,10 @@ import { useLoaderData } from "react-router-dom";
 import { Zoom } from "react-reveal";
 import bg from "../../assets/bg/bg4.png";
 import Dishes from "./Dishes";
+import useTitle from "../../hooks/useTitle";
 const Home = () => {
   const chefs = useLoaderData();
-
+  useTitle("Home");
   return (
     <>
       <div className="h-[calc(100vh-110px)]  relative">

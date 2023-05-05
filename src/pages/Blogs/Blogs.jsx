@@ -3,9 +3,11 @@ import bg from "../../assets/bg/bg3.jpg";
 import Pdf from "react-to-pdf";
 import { useLoaderData } from "react-router-dom";
 import Faq from "../../components/Faq";
+import useTitle from "../../hooks/useTitle";
 const ref = createRef();
 const Blogs = () => {
   const faqs = useLoaderData();
+  useTitle("Blogs");
   const options = {
     orientation: "landscape",
     unit: "in",

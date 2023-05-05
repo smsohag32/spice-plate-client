@@ -3,14 +3,13 @@ import Banner from "../pages/Recipes/Banner";
 import Recipes from "../pages/Recipes/Recipes";
 import { useLoaderData, useParams } from "react-router-dom";
 import bg from "../assets/bg/bg3.jpg";
+import useTitle from "../hooks/useTitle";
 const RecipesLayout = () => {
-  const chefs = useLoaderData();
+  const chef = useLoaderData();
+  useTitle(`Recipes of ${chef?.chefName}`);
   const { id } = useParams();
-  console.log(id);
 
   const [recipes, setRecipes] = useState([]);
-  console.log(chefs);
-  console.log(recipes);
 
   //   recipes data load
   useEffect(() => {
@@ -31,7 +30,7 @@ const RecipesLayout = () => {
         }}
         className="w-full text-white flex justify-center items-center h-[calc(100vh-110px)]"
       >
-        <Banner chefs={chefs} />
+        <Banner chef={chef} />
       </div>
       <Recipes recipes={recipes} />
     </div>

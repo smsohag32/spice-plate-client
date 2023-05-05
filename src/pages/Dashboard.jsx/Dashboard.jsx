@@ -2,8 +2,10 @@ import React from "react";
 import Header from "../shared/Header";
 import Profile from "./Profile";
 import { Outlet } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const Dashboard = () => {
+  useTitle("Dashboard");
   return (
     <div>
       <div>

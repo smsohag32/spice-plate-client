@@ -2,7 +2,7 @@ import React from "react";
 import { Fade } from "react-reveal";
 import { FcLike } from "react-icons/fc";
 import { AiFillLike } from "react-icons/ai";
-const Banner = ({ chefs }) => {
+const Banner = ({ chef }) => {
   const {
     chefName,
     yearsOfExperience,
@@ -10,7 +10,7 @@ const Banner = ({ chefs }) => {
     numberOfRecipes,
     likes,
     shortBio,
-  } = chefs;
+  } = chef;
   return (
     <div className="default-container my-10 flex flex-col md:flex-row justify-center items-center gap-5 md:gap-10">
       {/* img */}

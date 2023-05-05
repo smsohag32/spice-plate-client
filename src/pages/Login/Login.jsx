@@ -3,10 +3,12 @@ import { AuthContext } from "../../Context/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import useTitle from "../../hooks/useTitle";
 // login component
 
 const Login = () => {
   const navigate = useNavigate();
+  useTitle("Login");
   const { loginUser, googleLogin, githubLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
