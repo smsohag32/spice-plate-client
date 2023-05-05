@@ -69,7 +69,6 @@ const Register = () => {
   };
   //   handle email validation
   const handleEmailEr = (e) => {
-    console.log(e.target.value);
     const email = e.target.value;
     if (!(email && password)) {
       setIsEmpty(true);

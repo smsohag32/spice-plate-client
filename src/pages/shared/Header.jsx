@@ -1,17 +1,20 @@
 import React, { useContext, useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import Hamburger from "hamburger-react";
 import { AuthContext } from "../../Context/AuthProvider";
 import { Fade } from "react-reveal";
+
 const Header = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   const { user, userLogout } = useContext(AuthContext);
   const [isOpen, setOpen] = useState(false);
   //   handle user logout
   const handleLogout = () => {
     userLogout();
-    navigate("/login");
+    navigate("/login", { state: { from: location } });
   };
+  // handle close
   const handleClose = () => {
     setOpen(false);
   };

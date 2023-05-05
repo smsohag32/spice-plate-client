@@ -5,7 +5,7 @@ const About = () => {
   useTitle("About");
 
   return (
-    <div>
+    <div className="bg-slate-50">
       <div className="default-container">
         <h1 className="text-2xl md:4xl py-10 font-bold">About us</h1>
         <hr />

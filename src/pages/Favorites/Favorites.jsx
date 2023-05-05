@@ -40,10 +40,12 @@ const Favorites = () => {
         <div>
           {favRecipes.length == 0 ? (
             <>
-              <div>
-                <p>You don't have any favorite recipes</p>
+              <div className="flex flex-col items-center justify-center">
+                <p className="py-2 mb-2 text-2xl font-bold">
+                  You don't have any favorite recipes
+                </p>
                 <Link to="/" className="secondary-btn">
-                  Go home add To favorite Recipes
+                  Go home add To your favorite Recipes
                 </Link>
               </div>
             </>
