@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import HeaderBanner from "./HeaderBanner";
 import SubNewsLetter from "./SubNewsLetter";
 import Chefs from "./Chefs";
@@ -8,9 +8,15 @@ import { Zoom } from "react-reveal";
 import bg from "../../assets/bg/bg4.png";
 import Dishes from "./Dishes";
 import useTitle from "../../hooks/useTitle";
+import { AuthContext } from "../../Context/AuthProvider";
+import Spinner from "../../components/Spinner";
 const Home = () => {
+  const { loading } = useContext(AuthContext);
   const chefs = useLoaderData();
   useTitle("Home");
+  if (loading) {
+    return <Spinner></Spinner>;
+  }
   return (
     <>
       <div className="h-[calc(100vh-110px)]  relative">

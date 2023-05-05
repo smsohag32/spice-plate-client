@@ -24,8 +24,8 @@ const Recipes = ({ recipes }) => {
       </div>
       <Fade left>
         <div className="grid grid-cols-1 px-7 gap-10 md:px-12">
-          {recipes?.map((recipe) => (
-            <Recipe key={recipe.id} recipe={recipe} />
+          {recipes?.map((recipe, index) => (
+            <Recipe key={index} recipe={recipe} />
           ))}
         </div>
       </Fade>

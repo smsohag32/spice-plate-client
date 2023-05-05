@@ -1,6 +1,6 @@
 import React from "react";
 import { AiFillLike } from "react-icons/ai";
-import LazyLoad from "react-lazy-load";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 
 const Chef = ({ chef }) => {
@@ -15,13 +15,11 @@ const Chef = ({ chef }) => {
       >
         <div className="relative min-h-[40%]  object-contain overflow-hidden bg-cover bg-no-repeat">
           {/* img lazy load */}
-          <LazyLoad threshold={0.95} width={500}>
-            <img
-              src={chefPhoto}
-              className=" min-w-full object-cover h-60 transition duration-300 ease-in-out hover:scale-110"
-              alt="Louvre"
-            />
-          </LazyLoad>
+          <LazyLoadImage
+            width={"100%"}
+            src={chefPhoto}
+            className="min-w-full object-cover h-60 transition duration-300 ease-in-out hover:scale-110"
+          ></LazyLoadImage>
         </div>
         <div className="card-body">
           <h2 className="card-title">{chefName}</h2>
@@ -32,9 +30,10 @@ const Chef = ({ chef }) => {
             Total Recipes - {numberOfRecipes}
           </p>
           <div className="card-actions justify-between items-center">
-            <div className="badge text-sm primary-white ">
-              <AiFillLike className="mr-2" />
-              {likes}
+            <div className="badge text-sm bg-white text-black outline-none border-none ">
+              <small>Likes: </small>
+              <AiFillLike className="mr-2 ps-1 opacity-80" />
+              <span>{likes}</span>
             </div>
             <Link to={`/${id}`}>
               <button className="secondary-btn">View Recipes</button>

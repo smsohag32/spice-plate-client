@@ -1,16 +1,20 @@
 import { Rating } from "@smastrom/react-rating";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FcLike } from "react-icons/fc";
 import "@smastrom/react-rating/style.css";
 import Swal from "sweetalert2";
+import { addToDb } from "../utils/fackDb";
+import { FavRecipesContext } from "../Context/FavRecipesProvider";
 const Recipe = ({ recipe }) => {
+  const { handleRecipes } = useContext(FavRecipesContext);
   const [isFavorite, setIsFavorite] = useState(false);
   const { recipeName, description, ingredients, cookingSteps, rating } = recipe;
   //   const r = Math.round(rating);
 
   //   handle favorite
   const handleFavorite = () => {
+    handleRecipes(recipe);
     Swal.fire({
       position: "top-end",
       icon: "success",
@@ -35,13 +39,13 @@ const Recipe = ({ recipe }) => {
           <hr />
           <div className="flex flex-col gap-5 md:flex-row">
             <div className="w-full text-sm leading-tight tracking-wide">
-              {ingredients?.slice(0, 10).map((ingredient) => (
-                <p>_{ingredient}</p>
+              {ingredients?.slice(0, 10).map((ingredient, index) => (
+                <p key={index}>_{ingredient}</p>
               ))}
             </div>
             <div className="w-full text-sm leading-tight tracking-wide">
               {cookingSteps?.slice(0, 6).map((cook, index) => (
-                <p>_{cook}</p>
+                <p key={index}>_{cook}</p>
               ))}
             </div>
           </div>

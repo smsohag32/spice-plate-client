@@ -5,6 +5,7 @@ import { useLoaderData } from "react-router-dom";
 import Faq from "../../components/Faq";
 import useTitle from "../../hooks/useTitle";
 const ref = createRef();
+
 const Blogs = () => {
   const faqs = useLoaderData();
   useTitle("Blogs");
@@ -13,6 +14,7 @@ const Blogs = () => {
     unit: "in",
     format: [10, 18],
   };
+
   return (
     <div>
       <div

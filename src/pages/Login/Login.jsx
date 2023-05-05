@@ -4,18 +4,21 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import useTitle from "../../hooks/useTitle";
+import Spinner from "../../components/Spinner";
 // login component
 
 const Login = () => {
   const navigate = useNavigate();
   useTitle("Login");
-  const { loginUser, googleLogin, githubLogin } = useContext(AuthContext);
+  const { loginUser, googleLogin, githubLogin, loading } =
+    useContext(AuthContext);
+
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
 
-  // handle user login
+  // // handle user login
   const handleLogin = (e) => {
     e.preventDefault();
     setError("");
@@ -61,6 +64,10 @@ const Login = () => {
       navigate(from, { replace: true });
     });
   };
+
+  // if (loading) {
+  //   return <Spinner />;
+  // }
 
   return (
     <div data-aos="zoom-in-left" className="bg-slate-50">

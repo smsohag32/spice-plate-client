@@ -25,7 +25,6 @@ const SubNewsLetter = () => {
           </div>
           <input
             type="email"
-            name
             className="block w-full p-4 pl-10 text-sm text-black  rounded-lg bg-white placeholder:text-black placeholder:opacity-80 focus:ring-blue-500  outline-none focus:border-blue-500 dark:border-gray-600  dark:focus:ring-red-500"
             placeholder="example@gmail.com"
             required

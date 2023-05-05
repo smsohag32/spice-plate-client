@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Header from "../shared/Header";
 import bg from "../../assets/bg/bg3.jpg";
+import { FavRecipesContext } from "../../Context/FavRecipesProvider";
+import Footer from "../shared/Footer";
 const Favorites = () => {
+  const { favRecipes } = useContext(FavRecipesContext);
+  console.log(favRecipes);
   return (
     <div>
       <div>
@@ -27,6 +31,7 @@ const Favorites = () => {
         magnam tempore nemo, animi dolore velit. Iusto in deserunt nulla
         pariatur iste?
       </div>
+      <Footer />
     </div>
   );
 };

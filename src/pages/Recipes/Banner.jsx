@@ -1,6 +1,5 @@
 import React from "react";
 import { Fade } from "react-reveal";
-import { FcLike } from "react-icons/fc";
 import { AiFillLike } from "react-icons/ai";
 const Banner = ({ chef }) => {
   const {
@@ -14,10 +13,10 @@ const Banner = ({ chef }) => {
   return (
     <div className="default-container my-10 flex flex-col md:flex-row justify-center items-center gap-5 md:gap-10">
       {/* img */}
-      <div className="relative min-w-[50%]  h-full overflow-hidden bg-cover bg-no-repeat">
+      <div className="relative min-w-[50%]  max-h-full overflow-hidden bg-cover bg-no-repeat">
         <img
           src={chefPhoto}
-          className=" transition w-full object-cover min-h-full overflow-hidden rounded-xl duration-500  ease-in-out hover:scale-110"
+          className=" transition w-full object-cover  overflow-hidden rounded-xl duration-500  ease-in-out hover:scale-110"
           alt="chef"
         />
       </div>
