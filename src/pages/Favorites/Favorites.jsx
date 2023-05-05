@@ -3,9 +3,20 @@ import Header from "../shared/Header";
 import bg from "../../assets/bg/bg3.jpg";
 import { FavRecipesContext } from "../../Context/FavRecipesProvider";
 import Footer from "../shared/Footer";
+import { Link } from "react-router-dom";
+import SingleRecipe from "./SingleRecipe";
+import { AuthContext } from "../../Context/AuthProvider";
+import Spinner from "../../components/Spinner";
 const Favorites = () => {
-  const { favRecipes } = useContext(FavRecipesContext);
+  const { favRecipes, isLoading } = useContext(FavRecipesContext);
+  const { loading } = useContext(AuthContext);
   console.log(favRecipes);
+  if (loading) {
+    return <Spinner />;
+  }
+  if (isLoading) {
+    return <Spinner />;
+  }
   return (
     <div>
       <div>
@@ -26,10 +37,33 @@ const Favorites = () => {
       </div>
 
       <div className="py-10 default-container">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed autem
-        accusantium iusto similique vel harum. Dolorum repudiandae consequuntur
-        magnam tempore nemo, animi dolore velit. Iusto in deserunt nulla
-        pariatur iste?
+        <div>
+          {favRecipes.length == 0 ? (
+            <>
+              <div>
+                <p>You don't have any favorite recipes</p>
+                <Link to="/" className="secondary-btn">
+                  Go home add To favorite Recipes
+                </Link>
+              </div>
+            </>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="table w-full">
+                {/* head */}
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Rating</th>
+                  </tr>
+                </thead>
+                {favRecipes.map((favRe) => (
+                  <SingleRecipe key={favRe.id} favRe={favRe} />
+                ))}
+              </table>
+            </div>
+          )}
+        </div>
       </div>
       <Footer />
     </div>

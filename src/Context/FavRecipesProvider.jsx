@@ -1,9 +1,13 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { addToDb, getToDB } from "../utils/fackDb";
+import { AuthContext } from "./AuthProvider";
+import Spinner from "../components/Spinner";
 
 export const FavRecipesContext = createContext({});
 
 const FavRecipesProvider = ({ children }) => {
+  const { loading } = useContext(AuthContext);
+  const [isLoading, setIsLoading] = useState(true);
   const [allRecipes, setAllRecipes] = useState([]);
   const [favRecipes, setFavRecipes] = useState([]);
   const handleRecipes = (item) => {
@@ -21,11 +25,17 @@ const FavRecipesProvider = ({ children }) => {
 
   //   all recipes data load
   useEffect(() => {
-    fetch("https://spice-palate-server090.vercel.app/recipes")
-      .then((res) => res.json())
-      .then((data) => setAllRecipes(data));
+    async function fetchData() {
+      const res = await fetch(
+        `https://spice-palate-server090.vercel.app/recipes`
+      );
+      const data = await res.json();
+      setAllRecipes(data);
+      setIsLoading(false);
+    }
+    fetchData();
   }, []);
-  console.log(allRecipes);
+
   //   to get recipes in localStorage and set it saved recipes
 
   useEffect(() => {
@@ -41,9 +51,15 @@ const FavRecipesProvider = ({ children }) => {
     }
     setFavRecipes(savedRec);
   }, [allRecipes]);
+
+  if (loading) {
+    return <Spinner />;
+  }
   return (
     <>
-      <FavRecipesContext.Provider value={{ favRecipes, handleRecipes }}>
+      <FavRecipesContext.Provider
+        value={{ favRecipes, handleRecipes, isLoading }}
+      >
         {children}
       </FavRecipesContext.Provider>
     </>
