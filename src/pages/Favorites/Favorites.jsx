@@ -7,10 +7,13 @@ import { Link } from "react-router-dom";
 import SingleRecipe from "./SingleRecipe";
 import { AuthContext } from "../../Context/AuthProvider";
 import Spinner from "../../components/Spinner";
+import useTitle from "../../hooks/useTitle";
+
 const Favorites = () => {
+  useTitle("Favorite");
   const { favRecipes, isLoading } = useContext(FavRecipesContext);
   const { loading } = useContext(AuthContext);
-  console.log(favRecipes);
+
   if (loading) {
     return <Spinner />;
   }

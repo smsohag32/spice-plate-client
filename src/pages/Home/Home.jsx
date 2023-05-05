@@ -5,7 +5,7 @@ import Chefs from "./Chefs";
 import NewsEvent from "./NewsEvent";
 import { useLoaderData } from "react-router-dom";
 import { Zoom } from "react-reveal";
-import bg from "../../assets/bg/bg4.png";
+import bg from "../../assets/bg/bg1.jpg";
 import Dishes from "./Dishes";
 import useTitle from "../../hooks/useTitle";
 import { AuthContext } from "../../Context/AuthProvider";
