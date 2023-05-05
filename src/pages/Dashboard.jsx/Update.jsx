@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Update = () => {
-  const { updateProfileInfo } = useContext(AuthContext);
+  const { updateProfileInfo, user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [nameEr, setNameEr] = useState("");
@@ -21,7 +21,6 @@ const Update = () => {
     const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const confirm = e.target.confirm.value;
     const photo = e.target.photo.value;
 
     // validation check
@@ -43,13 +42,11 @@ const Update = () => {
     } else if (!password) {
       setPasswordEr("Please fill out password field");
       return;
-    } else if (!(password === confirm)) {
-      setMatchingEr(`Password doesn't matching`);
-      return;
     }
-    updateProfileInfo(name, photo);
-    e.target.reset();
-    navigate("/dashboard");
+    updateProfileInfo(name, photo).then((result) => {
+      e.target.reset();
+      navigate("/dashboard");
+    });
   };
   //   handle email validation
 
@@ -70,6 +67,7 @@ const Update = () => {
               <input
                 type="text"
                 placeholder="name"
+                defaultValue={user?.displayName}
                 className="input input-bordered"
                 name="name"
               />
@@ -87,6 +85,7 @@ const Update = () => {
               </label>
               <input
                 type="text"
+                defaultValue={user?.email}
                 placeholder="email"
                 className="input input-bordered"
                 name="email"
@@ -117,24 +116,7 @@ const Update = () => {
                 </label>
               )}
             </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Confirm Password</span>
-              </label>
-              <input
-                type="password"
-                name="confirm"
-                placeholder="confirm password"
-                className="input input-bordered"
-              />
-              {matchingEr && (
-                <label className="label">
-                  <span className="label-text-alt text-red-500 opacity-60 hover:text-red-500 hover:opacity-90 text-xs">
-                    {matchingEr}
-                  </span>
-                </label>
-              )}
-            </div>
+
             <div className="form-control">
               <label className="label">
                 <span className="label-text">PhotoURL</span>
@@ -142,6 +124,7 @@ const Update = () => {
               <input
                 type="text"
                 placeholder="photoURL"
+                defaultValue={user?.photoURL}
                 className="input input-bordered"
                 name="photo"
               />

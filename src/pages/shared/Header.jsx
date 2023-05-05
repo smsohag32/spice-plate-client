@@ -21,7 +21,11 @@ const Header = () => {
 
   return (
     <div className="flex z-50 flex-col gap-5 md:gap-0 md:flex-row md:justify-between md:items-center default-container mt-4 md:mt-0 ">
-      <div className="flex justify-between md:pb-0 items-center">
+      <div
+        className={`flex justify-between md:pb-0 items-center ${
+          user && "mb-4 md:mb-0"
+        }`}
+      >
         <h3 className="font-extrabold">
           <span style={{ fontFamily: `'Pacifico', cursive` }}>
             <Link className="text-xl ps-5 md:ps-0 md:text-2xl" to="/">
