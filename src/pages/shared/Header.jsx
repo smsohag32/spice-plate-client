@@ -60,6 +60,12 @@ const Header = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) => (isActive ? "primary-text" : "")}
+            to="/favorite"
+          >
+            Favorite Recipes
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => (isActive ? "primary-text" : "")}
             to="/blogs"
           >
             Blogs

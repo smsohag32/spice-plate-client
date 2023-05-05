@@ -67,7 +67,7 @@ const NewsEvent = () => {
           <div className="relative min-w-[50%] overflow-hidden bg-cover bg-no-repeat">
             <img
               src={img2}
-              className=" transition object-contain w-full duration-300 h-full ease-in-out hover:scale-110"
+              className=" transition object-cover h-full w-full duration-300 ease-in-out hover:scale-110"
               alt="Louvre"
             />
           </div>

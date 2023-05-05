@@ -1,9 +1,21 @@
 import React from "react";
+import Swal from "sweetalert2";
 import { FaMailBulk } from "react-icons/fa";
 const SubNewsLetter = () => {
+  const handleSub = (e) => {
+    e.preventDefault();
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "newsLetter Subscribed..",
+      showConfirmButton: false,
+      timer: 1000,
+    });
+    e.target.reset();
+  };
   return (
     <div className="py-10 md:w-[80%] rounded-md mx-auto px-5 md:px-10 bg-[#e21b70]">
-      <form>
+      <form onSubmit={handleSub}>
         <h3 className="text-center text-white font-extrabold text-xl mb-5">
           Subscribe to our newsLetter
         </h3>
@@ -13,6 +25,7 @@ const SubNewsLetter = () => {
           </div>
           <input
             type="email"
+            name
             className="block w-full p-4 pl-10 text-sm text-black  rounded-lg bg-white placeholder:text-black placeholder:opacity-80 focus:ring-blue-500  outline-none focus:border-blue-500 dark:border-gray-600  dark:focus:ring-red-500"
             placeholder="example@gmail.com"
             required

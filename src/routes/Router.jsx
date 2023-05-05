@@ -12,6 +12,7 @@ import Events from "../pages/Events/Events";
 import Update from "../pages/Dashboard.jsx/Update";
 import chefsDataLoad from "../utils/chefsDataLoad";
 import About from "../pages/About/About";
+import Favorites from "../pages/Favorites/Favorites";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,11 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "favorite",
+    element: <Favorites />,
+  },
+
   {
     path: "dashboard",
     element: <Dashboard />,
