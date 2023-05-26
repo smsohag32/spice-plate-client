@@ -25,7 +25,7 @@ const FavRecipesProvider = ({ children }) => {
   useEffect(() => {
     async function fetchData() {
       const res = await fetch(
-        "https://spice-palate-server090.vercel.app/recipes"
+        "https://spice-palate-backend.vercel.app/recipes"
       );
       const data = await res.json();
       setAllRecipes(data);

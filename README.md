@@ -4,7 +4,7 @@
 
 ## Live Link : [Spice Palate](https://spice-palate.web.app/)
 
-## Server site Link : [Spice Palate server site](https://spice-palate-server090.vercel.app/chefs)
+## Server site Link : [Spice Palate server site](https://spice-palate-backend.vercel.app/chefs)
 
 # Features
 

@@ -13,7 +13,7 @@ const RecipesLayout = () => {
 
   //   recipes data load
   useEffect(() => {
-    fetch(`https://spice-palate-server090.vercel.app/recipes/${id}`)
+    fetch(`https://spice-palate-backend.vercel.app/recipes/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setRecipes(data);
