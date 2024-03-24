@@ -19,30 +19,24 @@ const Home = () => {
   }
   return (
     <>
-      <div className="h-[calc(100vh-110px)]  relative">
+      <div className="min-h-[calc(100vh-80px)]  relative">
         <HeaderBanner />
       </div>
-      <Zoom>
-        <div className="default-container -mt-16 z-50">
-          <SubNewsLetter />
-        </div>
-      </Zoom>
+
       <div className="default-container">
         <Chefs chefs={chefs} />
       </div>
-      <div
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)),url('${bg}')`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
-        className=""
-      >
+      <div className="text-gray-900">
         <NewsEvent />
       </div>
       <div className="mt-7">
         <Dishes />
       </div>
+      <Zoom>
+        <div className="default-container pb-16 z-50">
+          <SubNewsLetter />
+        </div>
+      </Zoom>
     </>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Header from "../shared/Header";
-import bg from "../../assets/bg/bg3.jpg";
+import bg from "../../assets/bg/bg3.webp";
 import { FavRecipesContext } from "../../Context/FavRecipesProvider";
 import Footer from "../shared/Footer";
 import { Link } from "react-router-dom";

@@ -1,9 +1,9 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
-import img from "../../assets/dish/dish1.jpg";
-import img2 from "../../assets/dish/dish2.jpg";
-import img3 from "../../assets/dish/dish3.jpg";
-import img4 from "../../assets/dish/dish4.jpg";
+import img from "../../assets/dish/dish1.webp";
+import img2 from "../../assets/dish/dish2.webp";
+import img3 from "../../assets/dish/dish3.webp";
+import img4 from "../../assets/dish/dish4.webp";
 import { Fade } from "react-reveal";
 // component
 const Dishes = () => {

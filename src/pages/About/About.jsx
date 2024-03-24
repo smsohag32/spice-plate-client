@@ -5,9 +5,11 @@ const About = () => {
   useTitle("About");
 
   return (
-    <div className="bg-slate-50">
+    <div className="bg-slate-50 pb-16">
       <div className="default-container">
-        <h1 className="text-2xl md:4xl py-10 font-bold">About us</h1>
+        <h1 className="text-2xl md:4xl py-6 font-bold">
+          About <span className="primary-text">us</span>
+        </h1>
         <hr />
         <div className="flex flex-col mt-5 gap-4">
           <article>

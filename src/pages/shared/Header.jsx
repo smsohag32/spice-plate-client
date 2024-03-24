@@ -23,7 +23,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex z-50 flex-col gap-5 md:gap-0 md:flex-row md:justify-between md:items-center default-container mt-4 md:mt-0 ">
+    <div className="flex z-50 shadow flex-col gap-5 md:gap-0 md:flex-row md:justify-between md:items-center default-container md:mt-0 ">
       <div
         className={`flex justify-between md:pb-0 items-center ${
           user && "mb-4 md:mb-0"

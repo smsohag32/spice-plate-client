@@ -5,7 +5,7 @@ import useTitle from "../../hooks/useTitle";
 const Events = () => {
   useTitle("Event");
   return (
-    <div className="bg-black">
+    <div className="">
       <NewsEvent />
     </div>
   );

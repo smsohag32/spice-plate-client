@@ -1,5 +1,5 @@
 import React, { createRef } from "react";
-import bg from "../../assets/bg/bg3.jpg";
+import bg from "../../assets/bg/bg3.webp";
 import Pdf from "react-to-pdf";
 import { useLoaderData } from "react-router-dom";
 import Faq from "../../components/Faq";
@@ -40,7 +40,7 @@ const Blogs = () => {
       {/* pdf generate content and faq */}
       <div ref={ref} className="w-[100%] h-full">
         <div className="default-container mb-10 mt-8">
-          <h1 className="text-center opacity-50 text-2xl">FAQ</h1>
+          <h1 className="text-center opacity-90 text-[2rem]">Blogs</h1>
           <div className="grid mt-5 gap-10">
             {faqs?.map((faq) => (
               <Faq key={faq.id} faq={faq} />

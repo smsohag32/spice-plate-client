@@ -6,9 +6,10 @@
 @tailwind utilities;
 
 
-html{
+body{
     font-family: 'Libre Baskerville', serif;
     /* font-family: 'Pacifico', cursive; */
+    background: #efefef;
 }
 
 .primary-btn{
@@ -20,7 +21,7 @@ html{
 }
 
 .secondary-btn {
-    @apply bg-[#e21b70] py-1.5 px-4 text-white rounded-sm font-semibold text-sm tracking-tight
+    @apply bg-[#e21b70] whitespace-nowrap hover:bg-rose-500 transition-all duration-500 rounded-[2rem] py-2 font-semibold px-6 flex items-center justify-center gap-2 text-white text-base tracking-tight
 }
 
 .primary-text {
